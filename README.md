@@ -4,7 +4,13 @@ A browser-only lexer, parser, and tree-walking interpreter for a deliberately sm
 
 ## Run it
 
-Open the project through any static HTTP(S) host (for example, GitHub Pages). The page uses native JavaScript modules and fetches the example manifest, so opening `index.html` directly via `file://` is not supported by browsers that block module/fetch access. No backend service or build/install step is required once hosted. Press **Run** or use Ctrl/Cmd+Enter. The AST tab shows the parsed syntax tree; errors include line and column when available.
+### In a browser
+
+Serve the project from a local HTTP server; opening `index.html` directly via `file://` is not supported because the page uses JavaScript modules and fetches the example manifest. Press **Run** or use Ctrl/Cmd+Enter. The AST tab shows the parsed syntax tree; errors include line and column when available.
+
+### Android APK
+
+The project includes a Capacitor Android app that packages the same JavaScript interpreter in a local WebView. The `Build Android APK` GitHub Actions workflow runs the tests, builds an installable **debug APK**, and uploads it as the `dart-browser-compiler-debug-apk` artifact. Download it from the successful workflow run's **Artifacts** section. This debug APK is for testing and is not a Play Store release build.
 
 ## Implemented subset
 
@@ -29,7 +35,7 @@ The browser cannot expose the host file system or spawn processes. The virtual f
 
 ## Tests and examples
 
-Run `npm test` with Node.js 18 or later. There are 21 curated example programs under `examples/`, including `dart:io` examples. These exercise only the documented subset; they are not an SDK conformance suite.
+Run `npm ci` and `npm test` with Node.js 18 or later. There are 21 curated example programs under `examples/`, including `dart:io` examples. These exercise only the documented subset; they are not an SDK conformance suite. To sync the web app into Android, run `npm run build:android` after the native Android project has been added.
 
 ## Official references
 
