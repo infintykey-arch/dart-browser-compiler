@@ -25,11 +25,11 @@
           <p>This project is a browser-only lexer, parser, and tree-walking interpreter. It is not a full Dart compiler, analyzer, or SDK implementation and does not claim full specification compatibility.</p>
           <p>Implemented: basic declarations and literals, lists/maps/sets, functions and closures, interpolation for simple identifiers, arithmetic, assignments, if/switch, loops, and selected synchronous <code>dart:io</code> operations backed by IndexedDB.</p>
           <p>Not implemented: static type analysis, Dart classes, full null safety, async/await and stream scheduling, most SDK libraries, complete Dart semantics, and many <code>dart:io</code> APIs. Unsupported features should report an explicit error.</p>
-          <p><a href="https://dart.dev/language" target="_blank" rel="noreferrer">Dart language documentation</a> · <a href="https://api.dart.dev/" target="_blank" rel="noreferrer">Dart API reference</a></p>
+          <p>The interpreter and all examples are bundled locally. The Android app needs no network connection to run.</p>
         </div>
       </div>
     </section>
-    <footer>Local execution only · files are kept in this browser's IndexedDB · do not run untrusted code</footer>
+    <footer>Local execution only · virtual files stay in this app's local IndexedDB · do not run untrusted code</footer>
   </main>
   <script type="module" src="src/ui.js"></script>
 </body>

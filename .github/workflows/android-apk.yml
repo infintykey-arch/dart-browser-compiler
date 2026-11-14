@@ -32,9 +32,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
-
-      - name: Install Android SDK packages
-        run: sdkmanager --install "platform-tools" "platforms;android-36" "build-tools;36.0.0"
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
 
       - name: Install JavaScript dependencies
         run: npm ci
@@ -49,6 +48,9 @@ jobs:
         run: |
           chmod +x android/gradlew
           android/gradlew --no-daemon --stacktrace -p android assembleDebug
+
+      - name: Verify APK is self-contained and offline
+        run: bash scripts/verify-android-apk.sh android/app/build/outputs/apk/debug/app-debug.apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
