@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07101f"><meta name="description" content="An experimental, browser-only Dart lexer, parser and interpreter with a small dart:io virtual file-system subset.">
+  <title>Dart Browser Compiler — Experimental Subset</title><link rel="icon" href="assets/dart-compiler-logo.png"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="assets/dart-compiler-logo.png" alt="Dart Compiler logo"><div><strong>Dart Browser Compiler</strong><span>Experimental interpreter · no backend</span></div></div>
+    <div class="actions"><label class="sample-label" for="examples">Example</label><select id="examples" aria-label="Choose an example"></select><button id="run" class="run">Run ▶</button></div>
+  </header>
+  <main>
+    <section class="workspace" aria-label="Dart editor and output">
+      <div class="pane editor-pane">
+        <div class="pane-head"><span>main.dart</span><span id="status" class="status">Ready</span></div>
+        <div class="editor-wrap"><pre id="gutter" aria-hidden="true">1</pre><textarea id="source" spellcheck="false" aria-label="Dart source editor" autocapitalize="off" autocomplete="off"></textarea></div>
+      </div>
+      <div class="pane result-pane">
+        <div class="tabs"><button class="tab active" data-tab="output">Output</button><button class="tab" data-tab="ast">AST</button><button class="tab" data-tab="notes">Support</button></div>
+        <pre id="output" class="view active" aria-live="polite"></pre>
+        <pre id="ast" class="view"></pre>
+        <div id="notes" class="view notes">
+          <h2>Experimental subset — not the Dart SDK</h2>
+          <p>This project is a browser-only lexer, parser, and tree-walking interpreter. It is not a full Dart compiler, analyzer, or SDK implementation and does not claim full specification compatibility.</p>
+          <p>Implemented: basic declarations and literals, lists/maps/sets, functions and closures, interpolation for simple identifiers, arithmetic, assignments, if/switch, loops, and selected synchronous <code>dart:io</code> operations backed by IndexedDB.</p>
+          <p>Not implemented: static type analysis, Dart classes, full null safety, async/await and stream scheduling, most SDK libraries, complete Dart semantics, and many <code>dart:io</code> APIs. Unsupported features should report an explicit error.</p>
+          <p><a href="https://dart.dev/language" target="_blank" rel="noreferrer">Dart language documentation</a> · <a href="https://api.dart.dev/" target="_blank" rel="noreferrer">Dart API reference</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>Local execution only · files are kept in this browser's IndexedDB · do not run untrusted code</footer>
+  </main>
+  <script type="module" src="src/ui.js"></script>
+</body>
+</html>
